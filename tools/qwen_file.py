@@ -144,4 +144,6 @@ def main():
         print(f"ERROR: 未知命令: {cmd}")
 
 
+
 if __name__ == "__main__":
+    main()
