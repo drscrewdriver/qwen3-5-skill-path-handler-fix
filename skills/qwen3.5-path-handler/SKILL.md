@@ -1,13 +1,13 @@
 ---
 name: qwen3.5-path-handler
-description: 'Qwen3.5 路径处理器 - 检测到 Qwen3.5 模型时，强制替代所有文件操作（read/write/exists/list/mkdir/delete）为 qwen_file.py 工具，自动修复路径中的中文与 ASCII 混合导致的空格插入 bug，以及连字符 `-` 前后的空格。初次处理目录前，建议先使用 clean_spaces.py 清理现有空格结构。'
+description: 'Qwen3.5 路径处理器 - 检测到 Qwen3.5 模型时，强制替代所有文件操作（read/write/exists/list/mkdir/delete）为 qwen_file.py 工具，自动修复路径中的中英数符号混合前后的空格。初次处理目录前，应当先使用 clean_spaces.py 清理现有空格结构。'
 ---
 
 # Qwen3.5 路径处理器
 
 ## 🔴 强制替换规则
 
-**Qwen3.5 模型或中文路径时，禁止使用默认 read/write，必须用 qwen_file.py。**
+**Qwen3.5 模型或中文路径时，禁止使用默认agent工具 read/write，必须用 qwen_file.py。**
 
 | 条件 | 操作 |
 |------|------|
