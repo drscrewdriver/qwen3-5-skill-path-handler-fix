@@ -1,14 +1,17 @@
-qwen3.5-skill-path-handler-fix
-🛠️ A lightweight utility to fix automatic space insertion in Qwen3.5 model paths (e.g., Qwen3.5-122B-A10B → Qwen3.5 - 122B - A10B).
-📌 Problem Statement
-When loading Qwen3.5 series models (e.g., Qwen3.5-35B-A3B, Qwen3.5-122B-A10B) in certain inference frameworks or CLI tools, hyphens (-) in the model path are mistakenly interpreted as delimiters. This leads to unwanted spaces being inserted into the path:
-text
+# qwen3-5-skill-path-handler-fix
 
+> 🛠️ A lightweight utility to fix automatic space insertion in Qwen3.5 model paths (e.g., `Qwen3.5-122B-A10B` → `Qwen3.5 - 122B - A10B`).
+
+## 📌 Problem Statement
+
+When loading Qwen3.5 series models (e.g., `Qwen3.5-35B-A3B`, `Qwen3.5-122B-A10B`) in certain inference frameworks or CLI tools, hyphens (`-`) in the model path are mistakenly interpreted as delimiters. This leads to unwanted spaces being inserted into the path:
+
+```text
 Input:  Qwen3.5-122B-A10B
 Output: Qwen3.5 - 122B - A10B  ❌
-
+```
 This causes file handling or model loading failures, especially in the following scenarios:
-English users employing standard Hugging Face-style paths (containing - and alphanumeric characters)
+English users employing standard Hugging Face–style paths (containing - and alphanumeric characters)
 Any user working with Qwen3.5 family models whose paths include hyphens
 Note: This issue affects both Chinese and English users—it is not language-specific but stems from how some NLP preprocessing or markdown rendering modules parse identifier strings.
 ✨ Solution
@@ -28,8 +31,4 @@ Issues and PRs are welcome! If you encounter this problem in OpenClaw, LM Studio
 ⚠️ Known Limitations
 Long-context scenarios: Rule replacement might be forgotten in very long contexts — untested, but if the rule is forgotten, the use case may exceed current attention limits.
 Non-file I/O cases: For dynamically generated code that executes immediately (e.g., scripts), paths typically shouldn’t contain ambiguous - + digit patterns. No workaround is implemented for such cases yet. If you observe similar issues outside file writing, please share your findings!
-This version:
-Uses consistent English technical terminology
-Clarifies the scope and limitations
-Structures instructions clearly for international developers
-Removes mixed-language fragments
+
